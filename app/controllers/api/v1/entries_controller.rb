@@ -1,20 +1,22 @@
 class Api::V1::EntriesController < ApplicationController
 
   before_action :set_entry, only: [:show, :update, :destroy]
+  before_action :find_user
 
-    # GET /api/v1/entries
+    # GET /api/v1/users/:id/entries
     def index
-      @entries = Entry.all
+      # @entries = Entry.all
+      @entries = Entry.where(user_id: @user.id)
 
       render json: @entries
     end
 
-    # GET /api/v1/entries/1
+    # GET /api/v1/users/:id/entries/1
     def show
       render json: @entry
     end
 
-    # POST /api/v1/entries
+    # POST /api/v1/users/:id/entries
     def create
       @entry = Entry.new(entry_params)
 
@@ -25,7 +27,7 @@ class Api::V1::EntriesController < ApplicationController
       end
     end
 
-    # PATCH/PUT /api/v1/entries/1
+    # PATCH/PUT /api/v1/users/:id/entries/1
     def update
       if @entry.update(entry_params)
         render json: @entry
@@ -34,7 +36,7 @@ class Api::V1::EntriesController < ApplicationController
       end
     end
 
-    # DELETE /api/v1/entries/1
+    # DELETE /api/v1/users/:id/entries/1
     def destroy
       @entry.destroy
     end
@@ -48,6 +50,10 @@ class Api::V1::EntriesController < ApplicationController
         params.require(:entry).permit(
           :entry_date_and_time, :current_blood_sugar,
           :num_units_insulin, :note, :insulin_id, :user_id)
+      end
+
+      def find_user
+        @user = User.find(params[:user_id])
       end
 
 
