@@ -2,20 +2,20 @@ class Api::V1::InsulinsController < ApplicationController
 
 
   before_action :set_insulin, only: [:show, :update, :destroy]
-
-    # GET /api/v1/insulins
+  before_action :find_user
+    # GET /api/v1/users/:id/insulins
     def index
-      @insulins = Insulin.all
-
+      # @insulins = Insulin.all
+      @insulins = Insulin.where(user_id: @user.id)
       render json: @insulins
     end
 
-    # GET /api/v1/insulins/1
+    # GET /api/v1/users/:id/insulins/1
     def show
       render json: @insulin
     end
 
-    # POST /api/v1/insulins
+    # POST /api/v1/users/:id/insulins
     def create
       @insulin = Insulin.new(insulin_params)
 
@@ -26,7 +26,7 @@ class Api::V1::InsulinsController < ApplicationController
       end
     end
 
-    # PATCH/PUT /api/v1/insulins/1
+    # PATCH/PUT /api/v1/users/:id/insulins/1
     def update
       if @insulin.update(insulin_params)
         render json: @insulin
@@ -35,7 +35,7 @@ class Api::V1::InsulinsController < ApplicationController
       end
     end
 
-    # DELETE /api/v1/insulins/1
+    # DELETE /api/v1/users/:id/insulins/1
     def destroy
       @insulin.destroy
     end
@@ -49,6 +49,10 @@ class Api::V1::InsulinsController < ApplicationController
         params.require(:insulin).permit(
           :insulin_name, :insulin_short_or_long,
           :insulin_duration_in_minutes, :user_id)
+      end
+
+      def find_user
+        @user = User.find(params[:user_id])
       end
 
 end
