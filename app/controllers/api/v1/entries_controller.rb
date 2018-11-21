@@ -2,6 +2,7 @@ class Api::V1::EntriesController < ApplicationController
 
   before_action :set_entry, only: [:show, :update, :destroy]
   before_action :find_user
+  before_action :render_this, only: [:show]
 
     # GET /api/v1/users/:id/entries
     def index
@@ -13,7 +14,15 @@ class Api::V1::EntriesController < ApplicationController
 
     # GET /api/v1/users/:id/entries/1
     def show
+
+      # render json: @entry
       render json: @entry
+      # {entry:@entry,
+        # entry_time_remaining_in_minutes: @entry.time_remaining_in_minutes,
+        # entry_status: @entry.status,
+        # entry_date: @entry.date,
+        # entry_starting_time: @entry.starting_time}
+
     end
 
     # POST /api/v1/users/:id/entries
@@ -44,6 +53,16 @@ class Api::V1::EntriesController < ApplicationController
     private
       def set_entry
         @entry = Entry.find(params[:id])
+
+      end
+
+      def render_this
+        @entry = {entry:@entry,
+          entry_starting_time: @entry.starting_time,
+          entry_duration_in_minutes: @entry.duration_in_minutes,
+            entry_time_remaining_in_minutes: @entry.time_remaining_in_minutes,
+            entry_status: @entry.status,
+            entry_date: @entry.date}
       end
 
       def entry_params
