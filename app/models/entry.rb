@@ -2,37 +2,47 @@ class Entry < ApplicationRecord
   belongs_to :user
   belongs_to :insulin
 
-  attr_reader :date, :starting_time, :duration_in_minutes, :status, :time_remaining_in_minutes,
-
-
-  def date
-    date = self.entry_date_and_time.strftime("%m/%d/%Y")
+  def formatted_date
+    self.entry_date_and_time.strftime("%m/%d/%Y")
   end
 
-  def starting_time
-    starting_time = self.entry_date_and_time.strftime("%I:%M %p")
+  def formatted_start_time
+    self.entry_date_and_time.strftime("%I:%M %p")
   end
-
-  def duration_in_minutes
-    self.insulin.insulin_duration_in_minutes
-  end
+  #
+  # def insulin_info
+  #   InsulinSerializer.new(self.insulin).attributes
+  # end
 
   def end_time
-    start_time = self.entry_date_and_time.to_time / 60
-    start_time + self.duration_in_minutes
+    start = self.entry_date_and_time
+    duration_sec = self.insulin.insulin_duration_in_minutes * 60
+    (start + duration_sec).to_time
   end
 
-  def time_remaining_in_minutes
-    now = Time.now
-    # now = now / 60
-    # now - self.end_time
+  def formatted_end_time
+    self.end_time.strftime("%I:%M %p")
+  end
+
+  def now
+    Time.now.getlocal.strftime("%I:%M %p")
+  end
+
+  def time_left
+    now = Time.now.getlocal
+    remaining = self.end_time - now
+    if remaining > 0
+      Time.at(remaining).utc.strftime('%H:%M')
+    else
+      "00:00"
+    end
   end
 
   def status
-    if self.time_remaining_in_minutes > 0
-      return "active"
-    else
+    if self.time_left == "00:00"
       return "complete"
+    else
+      return "active"
     end
   end
 
