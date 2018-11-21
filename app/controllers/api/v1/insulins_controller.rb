@@ -6,12 +6,14 @@ class Api::V1::InsulinsController < ApplicationController
     # GET /api/v1/users/:id/insulins
     def index
       # @insulins = Insulin.all
+
       @insulins = Insulin.where(user_id: @user.id)
       render json: @insulins
     end
 
     # GET /api/v1/users/:id/insulins/1
     def show
+      # @entries = Entry.where(insulin_id: @insulin.id)
       render json: @insulin
     end
 
@@ -54,5 +56,6 @@ class Api::V1::InsulinsController < ApplicationController
       def find_user
         @user = User.find(params[:user_id])
       end
+
 
 end
