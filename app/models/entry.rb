@@ -34,12 +34,12 @@ class Entry < ApplicationRecord
     if remaining > 0
       Time.at(remaining).utc.strftime('%H:%M')
     else
-      "00:00"
+      "-"
     end
   end
 
   def status
-    if self.time_left == "00:00"
+    if self.time_left == "-"
       return "complete"
     else
       return "active"

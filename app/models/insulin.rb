@@ -10,7 +10,11 @@ class Insulin < ApplicationRecord
 
   def all_associated_entries
     # entries = Entry.where(insulin_id: self.id)
-    entries = self.entries.map do |e|
+    entries = self.entries.sort_by do |e|
+      e.entry_date_and_time
+    end.reverse
+
+    entries = entries.map do |e|
       EntrySerializer.new(e).attributes
     end
 
