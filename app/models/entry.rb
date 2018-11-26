@@ -2,6 +2,18 @@ class Entry < ApplicationRecord
   belongs_to :user
   belongs_to :insulin
 
+  validates :user_id, presence: true
+  validates :insulin_id, presence: true
+  validates :entry_date_and_time, presence: true
+  validate  :is_valid_datetime
+
+  def is_valid_datetime
+    if self.entry_date_and_time== nil
+      errors.add(:entry_date_and_time, "must be valid datetime")
+    end
+  end
+
+
   def formatted_date
     self.entry_date_and_time.strftime("%m/%d/%Y")
   end
