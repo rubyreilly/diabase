@@ -14,31 +14,27 @@ class Entry < ApplicationRecord
   end
 
 
-  def formatted_date
-    self.entry_date_and_time.strftime("%m/%d/%Y")
-  end
-
-  def formatted_start_time
-    self.entry_date_and_time.strftime("%I:%M %p")
-  end
-  #
-  # def insulin_info
-  #   InsulinSerializer.new(self.insulin).attributes
+  # def formatted_date
+  #   self.entry_date_and_time.strftime("%m/%d/%Y")
   # end
-
+  #
+  # def formatted_start_time
+  #   self.entry_date_and_time.strftime("%I:%M %p")
+  # end
+  #
   def end_time
     start = self.entry_date_and_time
     duration_sec = self.insulin.insulin_duration_in_minutes * 60
     (start + duration_sec).to_time
   end
-
-  def formatted_end_time
-    self.end_time.strftime("%I:%M %p")
-  end
-
-  def now
-    Time.now.getlocal.strftime("%I:%M %p")
-  end
+  #
+  # def formatted_end_time
+  #   self.end_time.strftime("%I:%M %p")
+  # end
+  #
+  # def now
+  #   Time.now.getlocal.strftime("%I:%M %p")
+  # end
 
   def time_left
     now = Time.now.getlocal

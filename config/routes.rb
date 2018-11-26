@@ -5,6 +5,7 @@ Rails.application.routes.draw do
       resources :users do
         resources :insulins
         resources :entries
+        
       end
     end
   end
