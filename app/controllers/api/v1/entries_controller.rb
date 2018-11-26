@@ -17,7 +17,8 @@ class Api::V1::EntriesController < ApplicationController
     # POST /api/v1/users/:id/entries
     def create
       @entry = Entry.new(entry_params)
-      if @entry.save
+      if @entry.valid?
+        @entry.save
         render json: @entry, status: :created, location: @entry
       else
         render json: @entry.errors, status: :unprocessable_entity
