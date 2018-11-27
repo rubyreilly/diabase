@@ -22,11 +22,11 @@ class Entry < ApplicationRecord
   #   self.entry_date_and_time.strftime("%I:%M %p")
   # end
   #
-  # def end_time
-  #   start = self.entry_date_and_time
-  #   duration_sec = self.insulin.insulin_duration_in_minutes * 60
-  #   (start + duration_sec).to_time
-  # end
+  def end_time
+    start = self.entry_date_and_time
+    duration_sec = self.insulin.insulin_duration_in_minutes * 60
+    (start + duration_sec).to_time
+  end
   # #
   # def formatted_end_time
   #   self.end_time.strftime("%I:%M %p")
@@ -36,22 +36,22 @@ class Entry < ApplicationRecord
   #   Time.now.getlocal.strftime("%I:%M %p")
   # end
 
-  # def time_left
-  #   now = Time.now.getlocal
-  #   remaining = self.end_time - now
-  #   if remaining > 0
-  #     Time.at(remaining).utc.strftime('%H:%M')
-  #   else
-  #     "-"
-  #   end
-  # end
-  #
-  # def status
-  #   if self.time_left == "-"
-  #     return "complete"
-  #   else
-  #     return "active"
-  #   end
-  # end
+  def time_left
+    now = Time.now.getlocal
+    remaining = self.end_time - now
+    if remaining > 0
+      Time.at(remaining).utc.strftime('%H:%M')
+    else
+      "-"
+    end
+  end
+
+  def status
+    if self.time_left == "-"
+      return "complete"
+    else
+      return "active"
+    end
+  end
 
 end

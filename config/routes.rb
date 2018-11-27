@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :users do
         resources :insulins
-        resources :entries
+          resources :entries
         
       end
     end
