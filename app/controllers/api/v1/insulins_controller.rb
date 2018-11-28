@@ -22,7 +22,7 @@ class Api::V1::InsulinsController < ApplicationController
       @insulin = Insulin.new(insulin_params)
 
       if @insulin.save
-        render json: @insulin, status: :created, location: @insulin
+        render json: @insulin, status: :created
       else
         render json: @insulin.errors, status: :unprocessable_entity
       end
