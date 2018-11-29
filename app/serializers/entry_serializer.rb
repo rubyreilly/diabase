@@ -3,12 +3,4 @@ class EntrySerializer < ActiveModel::Serializer
    :time_left, :status, :note
 
 
-  # :id, :user_id, :formatted_date,
-  # :formatted_start_time, :formatted_end_time, :time_left, :status, :now
-
-
-
-  # ,:insulin_info
-
-
 end
