@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     end
   end
 
-  post '/login', to: 'auth#create'
-  get '/profile', to: 'users#profile'
+  # post '/login', to: 'auth#create'
+  # get '/profile', to: 'users#profile'
 
 end
