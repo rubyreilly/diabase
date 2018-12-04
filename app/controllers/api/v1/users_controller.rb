@@ -13,7 +13,7 @@ class Api::V1::UsersController < ApplicationController
     render json: {user: UserSerializer.new(@user)}, status: :accepted
   end
 
-  
+
 
   def create
     @user = User.new(user_params)
@@ -27,10 +27,24 @@ class Api::V1::UsersController < ApplicationController
     end
   end
 
+
+  def update
+    @user = User.find(params[:id])
+    @user.update(user_params)
+
+        # @token = encode_token(user_id: @user.id)
+        # render json: { user: UserSerializer.new(@user), jwt: @token }, status: :created
+
+      render json: { user: UserSerializer.new(@user) }, status: :created
+    # else
+    #   render json: { error: 'failed to create user' }, status: :not_acceptable
+    # end
+  end
+
   private
 
   def user_params
-    params.require(:user).permit(:username)
+    params.require(:user).permit(:username, :id)
     # , :password_digest)
   end
 end
