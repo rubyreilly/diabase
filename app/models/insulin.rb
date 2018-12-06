@@ -2,14 +2,14 @@ class Insulin < ApplicationRecord
   has_many :entries
   belongs_to :user
 
+  validates :insulin_name, presence: true
+  validates :insulin_duration_in_minutes, presence: true
+  validates :insulin_duration_in_minutes, :numericality => { :greater_than_or_equal_to => 0 }
+  # validates_numericality_of :insulin_duration_in_minutes, :on => :create
 
-  # def formatted_duration
-  #   duration_in_sec = self.insulin_duration_in_minutes * 60
-  #   Time.at(duration_in_sec).utc.strftime('%H:%M')
-  # end
+
 
   def all_associated_entries
-    # entries = Entry.where(insulin_id: self.id)
     entries = self.entries.sort_by do |e|
       e.entry_date_and_time
     end.reverse

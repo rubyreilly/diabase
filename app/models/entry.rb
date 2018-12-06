@@ -6,6 +6,9 @@ class Entry < ApplicationRecord
   validates :insulin_id, presence: true
   validates :entry_date_and_time, presence: true
   validate  :is_valid_datetime
+  # validates :current_blood_sugar, :numericality => { :greater_than_or_equal_to => 0 }
+  # validates :num_units_insulin, :numericality => { :greater_than_or_equal_to => 0 }
+
 
   def is_valid_datetime
     if self.entry_date_and_time== nil
@@ -28,36 +31,3 @@ class Entry < ApplicationRecord
   end
 
 end
-
-
-  # def formatted_date
-  #   self.entry_date_and_time.strftime("%m/%d/%Y")
-  # end
-  #
-  # def formatted_start_time
-  #   self.entry_date_and_time.strftime("%I:%M %p")
-  # end
-  #
-  # def end_time
-  #   start = self.entry_date_and_time
-  #   duration_sec = self.insulin.insulin_duration_in_minutes * 60
-  #   (start + duration_sec).to_time
-  # end
-  # #
-  # def formatted_end_time
-  #   self.end_time.strftime("%I:%M %p")
-  # end
-  #
-  # def now
-  #   Time.now.getlocal.strftime("%I:%M %p")
-  # end
-  #
-  # def time_left
-  #   now = Time.now.getlocal
-  #   remaining = self.end_time - now
-  #   if remaining > 0
-  #     Time.at(remaining).utc.strftime('%H:%M')
-  #   else
-  #     "-"
-  #   end
-  # end
