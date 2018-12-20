@@ -2,7 +2,7 @@
 
 DiaBase is a dynamic web app built to help type 1 diabetics manage their insulin intake by setting a timer every time they administer insulin and tracking previous entries in an organized log.
 
-![Screen Shot 2018-12-19 at 8.20.22 PM.png](:storage/5d122950-5bcb-4df7-8d0e-3dad86297c15/d5044dd8.png)
+![216bd86d.png](:storage/5d122950-5bcb-4df7-8d0e-3dad86297c15/216bd86d.png)
 
 Backend:
 + Ruby on Rails
