@@ -1,0 +1,251 @@
+body {
+  margin-top: 20px;
+  /* margin-bottom: 100px; */
+  background-image: url('./images/chris-barbalis-671744-unsplash.jpg') ;
+  background-size: cover;
+  background-attachment: fixed;
+  font-weight: bold;
+}
+
+#home{
+  display: flex;
+}
+
+.outer-column{
+  width: 33vw;
+}
+
+#sign-up-link{
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  margin-top: 20px;
+  margin-right: 20px;
+  position: fixed;
+  outline-style: solid;
+  outline-color: red;
+  padding: 10px;
+
+}
+
+#user-form{
+  width: 33vw;
+  /* height: 100vh; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 75px;
+  /* margin-right: 20px; */
+  box-shadow: inset 0px 0px 60px blue;
+  background-color: #9ea8ba;
+  /* background-color: #f9f509; */
+}
+
+.main {
+  position:absolute;
+  padding-left: 30px;
+  padding-right: 25px;
+  top: 80px;
+  left:0px;
+  right:0px;
+  bottom:0px;
+  overflow-y:scroll;
+  }
+
+#nav-bar{
+  list-style-type: none;
+    margin-top: 20px;
+    padding: 0;
+    position: absolute;
+    top: 0px;
+    left: 20px;
+
+    position: fixed;
+    overflow: hidden;
+    /* width: 100%; */
+}
+
+.nav-item{
+  display: inline;
+  padding: 14px 16px;
+   /* padding: 12px; */
+   color:white;
+}
+
+#new-form-visible{
+  margin-top: 25px;
+
+}
+
+#my-ins{
+  width: 30vw;
+  /* height: 100vh; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 75px;
+  /* margin-right: 20px; */
+  box-shadow: inset 0px 0px 60px blue;
+  background-color: #9ea8ba;
+  /* background-color: #ffb600; */
+
+}
+
+.ins-card{
+  /* box-shadow: inset 0px 0px 70px yellow; */
+  /* background-image: url('./images/daniel-straub-637293-unsplash.jpg');
+  background-size: cover; */
+  background-color: #dee2e8 ;
+  /* outline-style: solid;
+  outline-color: red; */
+
+}
+
+#ins-form{
+  width: 30vw;
+  /* height: 100vh; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 75px;
+  margin-right: 40px;
+  margin-left: 40px;
+background-color: #9ea8ba;
+  box-shadow: inset 0px 0px 60px blue;
+}
+
+
+#user-edit-form{
+  width: 30vw;
+  /* height: 100vh; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 75px;
+  /* margin-right: 20px; */
+  box-shadow: inset 0px 0px 60px blue;
+  background-color: #9ea8ba;
+  /* background-color: black; */
+}
+
+#timer-container{
+  width: 25vw;
+    /* height: 75vh; */
+  /* overflow: scroll; */
+  /* height: 95vh; */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-flex-start;
+  margin-right: 40px;
+  margin-top: 20px;
+}
+
+#log-container{
+  width: 75vw;
+  /* height: 100vh; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #cec2d6;
+}
+
+
+#timers{
+  margin-top: 15px;
+  margin-bottom:50px;
+}
+
+#entry{
+  /* box-shadow-color: #0bf107; */
+  box-shadow: inset 0px 0px 40px #0bf107;
+}
+
+#timer-card{
+  box-shadow:  0px 0px 60px #0bf107;
+  margin-bottom: 50px;
+  background-color: #dee2e8;
+
+}
+
+
+
+@font-face {
+  font-family: 'Press Start 2P', cursive;
+/* font-family: 'VT323', monospace; */
+/* font-family: 'Share Tech', sans-serif; */
+
+/* font-family: 'Markazi Text', serif; */
+}
+
+#head{
+  font-family: 'Press Start 2P';
+  color: #0bf107;
+  position: fixed;
+  top: 30px;
+
+  left: 40%;
+  margin-right: -50%;
+   /* font-family:'Audiowide', cursive; */
+  /* font-family: 'Orbitron', sans-serif; */
+}
+
+
+#username{
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  color: red;
+  position: fixed;
+  margin-top: 20px;
+  margin-right: 20px;
+  /* box-shadow:  0px 0px 60px blue;
+  background-color: black; */
+
+
+}
+
+#new-entry-btn{
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  box-shadow: 0px 0px 50px white;
+}
+
+#add-new-entry-btn{
+  position: absolute;
+  bottom: 10px;
+  left: 51%;
+  /* right: 10px; */
+  box-shadow:  0px 0px 20px yellow;
+  margin: 5px;
+  /* background-color: yellow; */
+
+}
+
+
+#new-field{
+  padding: 10px;
+}
+
+
+
+#ins-log{
+  margin-top:10px;
+  background-color: #dee2e8;
+}
+
+#log{
+  margin-top: 5px;
+}
+
+#clock{
+  font-size: 100%;
+  text-align: center;
+  color: #0bf107;
+  text-shadow: 0px 0px 70px;
+}
