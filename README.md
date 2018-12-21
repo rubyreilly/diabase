@@ -4,15 +4,11 @@ DiaBase is a dynamic web app built to help type 1 diabetics manage their insulin
 
 ![db-screenshot.png](db-screenshot.png)
 
-Backend:
-+ Ruby on Rails
-+ API using Postgres with endpoints for users, insulins, and entries
-+ Ruby datetime logic
+Backend Ruby on Rails API using Postgres. Endpoints for users, insulins, and entries.
 
-Frontend:
-+ React and Redux
-+ Custom CSS
-+ Date.js, moment.js, and countdown.js
+Frontend built with React and Redux (Javascript). Custom CSS styling.
+
+Timers made using Countdown.js. Other datetime data on frontend formatted with date.js and moment.js (when applicable). Datetime data stored in backend using Ruby datetime.
 
 ## Development Setup
 
@@ -39,10 +35,21 @@ To open in browser run
 npm start
 ```
 
+## Usage Example
+After creating an account, a user can add new insulins under settings. An insulin requires a name and a duration in hours (3, 4, 5, 12, or 24 hours). The app calculates how long an entry for a certain type of insulin is active based on the duration of that type of insulin.
+
+![form.png](form.png)
+
+As a user, you can create a new entry using the form pictured above. You can enter a type of insulin, date, time, blood sugar, number of units of insulin, and a note. All of these fields are optional, except the type of insulin, so you can just select the insulin from the dropdown menu of your insulins, and click "add to log", and it will record the entry with the current date and time as a default.
+
+You can view your log of previous entries (in reverse chronological order). If the entry is active, it appears green and a timer appears to the left of the log, counting down to when the insulin will be finished acting. You can switch between logs for your different types of insulin. You can delete entries.
+
+Reliable consistent timer updates based on entry end time (entry start time + duration of insulin). Reliable with or without page refresh.
+
 ## Contributing
 1.  Fork it (https://github.com/rubyreilly/diabase/fork)
 2.  Create your feature branch (`git checkout -b feature/fooBar`)
-3.  Commit your changes (`git commit -m 'Message about your changes'`)
+3.  Commit your changes (`git commit -m 'Added fooBar'`)
 4.  Push to the branch (`git push origin feature/fooBar`)
 5.  Create a new Pull Request
 
