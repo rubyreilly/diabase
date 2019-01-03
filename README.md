@@ -52,6 +52,8 @@ Reliable consistent timer updates based on entry end time (entry start time + du
 4.  Push to the branch (`git push origin feature/fooBar`)
 5.  Create a new Pull Request
 
+To view previous frontend commits (from before frontend and backend repos were merged), view this repo: https://github.com/rubyreilly/t1dlog_frontend
+
 ## Contact
 
 Ruby Reilly – [my github](https://github.com/rubyreilly) – [rubyclaroreilly@gmail.com](mailto:rubyclaroreilly@gmail.com)
