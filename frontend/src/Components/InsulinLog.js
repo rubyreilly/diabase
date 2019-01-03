@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
 import LogEntry from './LogEntry'
+import EditEntryForm from './EditEntryForm'
 import {connect} from 'react-redux'
 
 class InsulinLog extends Component{
   generateLogEntries=(insulins)=>{
-
     if (insulins.length===0){
       return null
     }else{
-      console.log("SHOULD BE SELECTED INS", this.props.selectedInsulin)
       const insulin = insulins.find((insulin)=>insulin.id === this.props.selectedInsulin)
       return insulin.all_associated_entries.map(entryObj=><LogEntry entryObj={entryObj} insulinObj={insulin} key={entryObj.id}/>)
     }

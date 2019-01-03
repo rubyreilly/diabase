@@ -117,24 +117,24 @@ export const deleteEntry= (entryObj)=>{
   }
 }
 
-// export const updateEntry = (entryObj)=>{
-//   console.log("entryDATA IN PATCH", entryObj)
-//   return (dispatch)=>{
-//     const options={
-//       method: "PATCH",
-//       body: JSON.stringify({entry:entryObj}),
-//       headers:{
-//         'Content-Type': 'application/json',
-//         'Accept': 'application/json'
-//       }
-//     }
-//     return fetch(`http://localhost:3001/api/v1/users/${entryObj.user_id}/entries/${entryObj.id}`, options)
-//     .then(res=>res.json())
-//     .then(res=>console.log(res))
-//     // .then((res)=>dispatch(setUser(res.user)))
-//     // .catch(console.error)
-//   }
-// }
+export const updateEntry = (entryObj)=>{
+  console.log("entryDATA IN PATCH", entryObj)
+  return (dispatch)=>{
+    const options={
+      method: "PATCH",
+      body: JSON.stringify({entry:entryObj}),
+      headers:{
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      }
+    }
+    return fetch(`http://localhost:3001/api/v1/users/${entryObj.user_id}/entries/${entryObj.id}`, options)
+    .then(res=>res.json())
+    .then(res=>console.log(res))
+    // .then((res)=>dispatch(setUser(res.user)))
+    // .catch(console.error)
+  }
+}
 
 
 
