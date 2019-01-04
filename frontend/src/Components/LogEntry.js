@@ -3,7 +3,7 @@ import moment from 'moment'
 import {connect} from 'react-redux'
 import {deleteEntry, removeEntry} from '../Redux/actions'
 import Countdown from 'react-countdown-now';
-import EditEntryForm from './EditEntryForm'
+// import EditEntryForm from './EditEntryForm'
 
 
 class LogEntry extends Component{
@@ -33,9 +33,9 @@ class LogEntry extends Component{
 
   handleEdit = ()=>{
     this.setState({selected:!this.state.selected})
-    if (this.state.selected===true){
-      return(<EditEntryForm entryObj= {this.props}/>)
-    }
+    // if (this.state.selected===true){
+    //   return(<EditEntryForm entryObj= {this.props}/>)
+    // }
   }
   //
   // handleUpdate=(e)=>{
@@ -75,7 +75,6 @@ class LogEntry extends Component{
       <td data-label="status">{entryObj.status}</td>
 
         <td>
-      <button onClick={()=>this.handleEdit()}>edit</button>
       <button onClick={(e)=>this.handleDelete(e)}>delete</button></td>
 
 

@@ -31,6 +31,7 @@ class InsulinLog extends Component{
           </tr>
         </thead>
       <tbody>
+
       {this.generateLogEntries(this.props.insulins)}
       </tbody>
       </table>
