@@ -9,6 +9,8 @@ Frontend built with React and Redux (Javascript). Custom CSS styling.
 
 Timers made using Countdown.js. Other datetime data on frontend formatted with date.js and moment.js (when applicable). Datetime data stored in backend using Ruby datetime.
 
+Video demo: https://www.youtube.com/watch?v=CRbWEsMHcQM&t=1s 
+
 ## Development Setup
 
 ### Backend
