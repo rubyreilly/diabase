@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 import moment from 'moment'
 import {momentDurationFormatSetup} from 'moment-duration-format'
 // import Countdown from 'react-countdown-now';
 import Timer from './Timer'
 
-class TimerCard extends Component{
+const TimerCard=(props)=>{
 
   // calculateTimeLeft=()=>{
   //   const start = this.props.entryObj.entry_date_and_time
@@ -17,11 +17,8 @@ class TimerCard extends Component{
   // }
 
 
-  render(){
-
-
-    const entryObj = this.props.entryObj
-    const insulinObj = this.props.insulinObj
+    const entryObj = props.entryObj
+    const insulinObj = props.insulinObj
 
     const formattedDate = moment(entryObj.entry_date_and_time).format('dddd MMMM Do')
     const formattedStartTime = moment(entryObj.entry_date_and_time).format('LT')
@@ -43,6 +40,6 @@ class TimerCard extends Component{
 
     )
   }
-}
+
 
 export default TimerCard

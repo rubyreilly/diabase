@@ -56,4 +56,4 @@ To view previous frontend commits (from before frontend and backend repos were m
 
 ## Contact
 
-Ruby Reilly – [my github](https://github.com/rubyreilly) – [rubyclaroreilly@gmail.com](mailto:rubyclaroreilly@gmail.com)
+Ruby Reilly – [my github](https://github.com/rubyreilly) – [rubyreilly.com](rubyreilly.com) - [rubyclaroreilly@gmail.com](mailto:rubyclaroreilly@gmail.com)

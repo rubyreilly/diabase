@@ -1,17 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class Header extends Component{
-  render(){
+const Header=(props)=>{
     return(
-      <div>
       <h1 className="ui center aligned icon header" id='head'>
-
-            D i a B a s e
-            </h1>
-
-      </div>
+        D i a B a s e
+      </h1>
     )
-  }
 }
 
 export default Header

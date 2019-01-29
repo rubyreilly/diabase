@@ -1,28 +1,26 @@
-import React, { Component } from 'react';
+import React from 'react';
 import InsulinCard from './InsulinCard'
 import {connect} from 'react-redux'
 import {selectInsulin} from '../Redux/actions'
 
-class MyInsulins extends Component{
-  generateInsulinCards=()=>{
-    return this.props.insulins.map((insulinObj)=>{
+const MyInsulins = (props)=>{
+  const generateInsulinCards=()=>{
+    return props.insulins.map((insulinObj)=>{
       return <InsulinCard insulinObj={insulinObj} key={insulinObj.id}/>
     })
   }
 
-
-  render(){
     return(
       <div >
       <h1>My Insulins</h1>
       <div className="ui two column grid">
 
-      {this.generateInsulinCards()}
+      {generateInsulinCards()}
       </div>
       </div>
     )
   }
-}
+
 
 const mapStateToProps= (state)=>{
   return {

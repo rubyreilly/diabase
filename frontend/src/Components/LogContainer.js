@@ -1,36 +1,34 @@
-import React, { Component } from 'react';
+import React from 'react';
 // import {reducer} from '../Redux/reducer'
 import {connect} from 'react-redux'
 import {selectInsulin} from '../Redux/actions'
 import InsulinLog from './InsulinLog'
 
 
-class LogContainer extends Component{
+const LogContainer=(props)=>{
 
-  generateTabs=(insulins)=>{
+   const generateTabs=(insulins)=>{
 
     return insulins.map(insulinObj=>{
 
-      return <div className={this.props.selectedInsulin === insulinObj.id ? "active item":"item"}
-      onClick={()=> this.props.selectInsulin(insulinObj.id)}>
+      return <div className={props.selectedInsulin === insulinObj.id ? "active item":"item"}
+      onClick={()=> props.selectInsulin(insulinObj.id)}>
       {insulinObj.insulin_name}
       </div>
     })
   }
 
-
-  render(){
     return(
       <div id='ins-log' >
       <div className="ui top attached tabular menu">
 
-        {this.generateTabs(this.props.insulins)}
+        {generateTabs(props.insulins)}
       </div>
       <InsulinLog/>
       </div>
     )
   }
-}
+
 
 const mapStateToProps= (state)=>{
   return {

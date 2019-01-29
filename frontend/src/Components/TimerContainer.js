@@ -1,13 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 import TimerCard from './TimerCard'
 import {connect} from 'react-redux'
 
-class TimerContainer extends Component{
+const TimerContainer = (props)=>{
 
-
-
-  generateTimerCards = ()=>{
-      const insulins = this.props.insulins
+  const generateTimerCards = ()=>{
+      const insulins = props.insulins
 
       return insulins.map(insulin=>{
         return insulin.all_associated_entries.map(entryObj=>{
@@ -22,16 +20,15 @@ class TimerContainer extends Component{
         })
       }
 
-  render(){
     return(
 
       <div id='timers'>
 
-      {this.generateTimerCards()}
+      {generateTimerCards()}
       </div>
     )
   }
-}
+
 
 const mapStateToProps= (state)=>{
   return {

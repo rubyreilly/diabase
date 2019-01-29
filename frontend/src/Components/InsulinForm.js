@@ -6,7 +6,7 @@ class InsulinForm extends Component{
 
   state={
     insulinName:'',
-    duration:''
+    duration:3
   }
 
   handleChange=(e)=>{

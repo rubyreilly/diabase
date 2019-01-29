@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import HomeContainer from './Components/HomeContainer'
 import NavBar from './Components/NavBar'
 import Header from './Components/Header'
@@ -14,21 +14,19 @@ import {logInOut} from './Redux/actions'
 
 import './App.css';
 
-class App extends Component {
+const App =(props) => {
 
 
-  logout = () => {
-    this.props.logInOut(false)
+  const logout = () => {
+    props.logInOut(false)
     }
-
-  render() {
 
     return (
       <BrowserRouter>
 
       <div >
 
-       {this.props.loggedIn ?
+       {props.loggedIn ?
         <div className="ui three column grid">
           <div className="column">
             <NavBar/>
@@ -44,7 +42,7 @@ class App extends Component {
 
 
 
-      {this.props.loggedIn ?
+      {props.loggedIn ?
         <div className='main'>
       <Switch>
 
@@ -76,7 +74,7 @@ class App extends Component {
 
     );
   }
-}
+
 
 const mapStateToProps=(state)=>{
   return{

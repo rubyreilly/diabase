@@ -1,19 +1,18 @@
-import React, { Component } from 'react';
+import React from 'react';
 import LogEntry from './LogEntry'
 import EditEntryForm from './EditEntryForm'
 import {connect} from 'react-redux'
 
-class InsulinLog extends Component{
-  generateLogEntries=(insulins)=>{
+const InsulinLog = (props)=>{
+  const generateLogEntries=(insulins)=>{
     if (insulins.length===0){
       return null
     }else{
-      const insulin = insulins.find((insulin)=>insulin.id === this.props.selectedInsulin)
+      const insulin = insulins.find((insulin)=>insulin.id === props.selectedInsulin)
       return insulin.all_associated_entries.map(entryObj=><LogEntry entryObj={entryObj} insulinObj={insulin} key={entryObj.id}/>)
     }
   }
 
-  render(){
     return(
       <div className="ui bottom attached active tab segment">
       <table className="ui celled table">
@@ -32,12 +31,12 @@ class InsulinLog extends Component{
         </thead>
       <tbody>
 
-      {this.generateLogEntries(this.props.insulins)}
+      {generateLogEntries(props.insulins)}
       </tbody>
       </table>
     </div>
     )
-  }
+  
 }
 
 const mapStateToProps= (state)=>{
