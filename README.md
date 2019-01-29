@@ -1,5 +1,5 @@
 # DiaBase
-DiaBase is a dynamic web app built to help type 1 diabetics manage their insulin intake by setting a timer every time they administer insulin and tracking previous entries in an organized log.
+DiaBase is a dynamic web app built to help insulin dependent diabetics manage their insulin intake by setting a timer every time they administer insulin and tracking previous entries in an organized log.
 
 ![db-screenshot.png](db-screenshot.png)
 
@@ -8,6 +8,8 @@ Backend Ruby on Rails API using Postgres. Endpoints for users, insulins, and ent
 Frontend built with React and Redux (Javascript). Custom CSS styling.
 
 Timers made using Countdown.js. Other datetime data on frontend formatted with date.js and moment.js (when applicable). Datetime data stored in backend using Ruby datetime.
+
+Video demo: https://www.youtube.com/watch?v=CRbWEsMHcQM&t=1s 
 
 ## Development Setup
 
